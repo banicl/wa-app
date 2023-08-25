@@ -2,14 +2,14 @@
   <img src="src/assets/title.png" alt="App Logo" width="150">
 </p>
 
-<h1 align="center">🌟 我的朋友刘 / Moj prijatelj Liu 🌟</h1>
+<h1 align="center">🌟 Moj prijatelj Liu 🌟</h1>
 
 <p align="center">
   <strong> Započni svoju jezičnu avanturu s ovom zabavnom i interaktivnom aplikacijom za učenje! 🚀</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/made%20with-%F0%9F%92%96%20by%20You-blueviolet" alt="Made with Love">
+  <img src="https://img.shields.io/badge/made%20with-%F0%9F%92%96%20-blueviolet" alt="Made with Love">
   <img src="https://img.shields.io/badge/vue.js-%F0%9F%8C%88-brightgreen" alt="Vue.js">
   <img src="https://img.shields.io/badge/mongodb-%F0%9F%8D%83-green" alt="MongoDB">
 </p>
