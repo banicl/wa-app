@@ -3,12 +3,10 @@
     <div class="overlay">
       <img src="@/assets/title.png" alt="Home Image" class="home-image" />
       <div class="cta-buttons">
-        <router-link to="/login" class="cta-button" @mouseenter="playLoginSound">
-          登录
-        </router-link>
-        <router-link to="/register" class="cta-button" @mouseenter="playRegisterSound">
-          注册
-        </router-link>
+        <router-link to="/Login" class="cta-button" @mouseenter="playLoginSound">
+        登录 </router-link>
+        <router-link to="/registration" class="cta-button" @mouseenter="playRegisterSound">
+        注册</router-link>
       </div>
       <footer class="footer">
         <div class="footer-left">
