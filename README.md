@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="src/assets/app-logo.png" alt="App Logo" width="150">
+  <img src="src/assets/title.png" alt="App Logo" width="150">
 </p>
 
-<h1 align="center">🌟 Language Learning App 🌟</h1>
+<h1 align="center">🌟 我的朋友刘 / Moj prijatelj Liu 🌟</h1>
 
 <p align="center">
-  <strong>Start Your Language Adventure with our Fun and Interactive Learning App! 🚀</strong>
+  <strong> Započni svoju jezičnu avanturu s ovom zabavnom i interaktivnom aplikacijom za učenje! 🚀</strong>
 </p>
 
 <p align="center">
@@ -15,24 +15,20 @@
 </p>
 
 <p align="center">
-  <em>🌍 Explore languages, master vocabulary, and have fun on your language learning journey! 🎉</em>
+  <em>🌍 Istraži kineski jezik, savladaj vokabular i zabavi se na svom putu učenja jezika! 🎉</em>
 </p>
 
-## 📖 About
+## 📖 O aplikaciji
 
-Welcome to our Language Learning App! 🌈 This app is designed to make learning languages an exciting and engaging experience for learners of all ages. Dive into interactive lessons, games, and challenges while immersing yourself in the beauty of different languages and cultures.
+Dobrodošli u aplikaciju za učenje kineskog jezika! 🌈 Ova je aplikacija osmišljena kako bi učenje jezika učinila uzbudljivim i privlačnim iskustvom za djecu svih uzrasta. Uronite u interaktivne lekcije, igre i izazove i pri tome upoznajte ljepote kineskog jezika i kulture.
 
-## 🚀 Features
+## 🚀 Značajke
 
-- 📚 Interactive Lessons: Engaging lessons that cover essential vocabulary and phrases.
-- 🎮 Language Games: Fun games to test and reinforce your learning.
-- 🌏 Cultural Insights: Explore the world through language and gain insights into different cultures.
-- 🏆 Progress Tracking: Track your progress and see how far you've come.
-- 🎈 Kid-Friendly: Designed with kids in mind, but suitable for learners of all ages.
+- 📚 Interaktivne lekcije: zanimljive lekcije koje pokrivaju osnovni vokabular i fraze.
+- 🎮 Jezične igre: zabavne igre za testiranje i učvršćivanje vašeg učenja.
+- 🌏 Kulturni uvidi: istražite svijet kroz jezik i steknite uvid u različite kulture.
+- 🏆 Praćenje napretka: pratite svoj napredak i vidite dokle ste stigli.
+- 🎈 Prilagođeno djeci: dizajnirano za djecu, ali prikladno za učenike svih uzrasta.
+  
 
-## 🛠️ Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/language-learning-app.git
+Made with ❤️.
