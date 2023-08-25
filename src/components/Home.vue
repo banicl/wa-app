@@ -10,6 +10,15 @@
           注册
         </router-link>
       </div>
+      <footer class="footer">
+        <div class="footer-left">
+          
+        </div>
+        <div class="footer-right">
+          <b><p>🕒 {{ currentTime }}</p>
+          <p>📆 {{ currentDate }}</p></b>
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -25,6 +34,8 @@ export default {
     return {
       loginAudio: new Audio(loginSound),
       registerAudio: new Audio(registerSound),
+      currentTime: this.getCurrentTime(),
+      currentDate: this.getCurrentDate(),
     };
   },
   methods: {
@@ -34,6 +45,22 @@ export default {
     playRegisterSound() {
       this.registerAudio.play();
     },
+    getCurrentTime() {
+      const now = new Date();
+      const options = { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      return now.toLocaleTimeString('zh-CN', options); // Display time in Chinese format
+    },
+    getCurrentDate() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return now.toLocaleDateString('zh-CN', options); // Display date in Chinese
+    },
+  },
+  mounted() {
+    setInterval(() => {
+      this.currentTime = this.getCurrentTime();
+      this.currentDate = this.getCurrentDate();
+    }, 1000); // Update every second
   },
 };
 </script>
@@ -62,7 +89,7 @@ export default {
 }
 
 .home-image {
-  max-width: 100%; /* Adjust image size as needed */
+  max-width: 100%; 
   height: auto;
 }
 
@@ -89,5 +116,30 @@ export default {
 .cta-button:hover {
   background-color: #7f0000;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  border-top: 5px solid black;
+  padding: 0px 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-right {
+  text-align: right;
+} 
 </style>
 
