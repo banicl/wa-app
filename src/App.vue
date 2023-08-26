@@ -19,13 +19,13 @@ export default {
 
 <style>
 .slide-fade-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0); /* Use a playful cubic-bezier function */
+  transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-to {
   opacity: 0;
-  transform: translateX(-100%); /* Slide from the left */
+  transform: translateX(-100%); 
 }
 </style>

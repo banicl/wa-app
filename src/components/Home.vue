@@ -3,10 +3,10 @@
     <div class="overlay">
       <img src="@/assets/title.png" alt="Home Image" class="home-image" />
       <div class="cta-buttons">
-        <router-link to="/Login" class="cta-button" @mouseenter="playLoginSound">
+        <router-link to="/Login" class="cta-button" v-on:mouseenter.native="playLoginSound">
           登录 / Login 🔐 </router-link>
-        <router-link to="/Registration" class="cta-button" @mouseenter="playRegisterSound">
-        注册 / Register 📝</router-link>
+        <router-link to="/Registration" class="cta-button" v-on:mouseenter.native="playRegisterSound">
+        注册 / Registration 📝</router-link>
       </div>
       <footer class="footer">
           <b>© FIPU &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 📆 {{ currentDate }} &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Made with 💓.</b>
