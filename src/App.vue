@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-main>
-      <router-view /> <!-- This is where the active route's component will be displayed -->
+      <transition name="slide-fade" mode="out-in">
+      <router-view />
+    </transition>
     </v-main>
   </v-app>
 </template>
@@ -14,3 +16,16 @@ export default {
   }),
 };
 </script>
+
+<style>
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0); /* Use a playful cubic-bezier function */
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-100%); /* Slide from the left */
+}
+</style>

@@ -4,23 +4,16 @@
       <img src="@/assets/title.png" alt="Home Image" class="home-image" />
       <div class="cta-buttons">
         <router-link to="/Login" class="cta-button" @mouseenter="playLoginSound">
-        登录 </router-link>
+          登录 / Login 🔐 </router-link>
         <router-link to="/registration" class="cta-button" @mouseenter="playRegisterSound">
-        注册</router-link>
+        注册 / Register 📝</router-link>
       </div>
       <footer class="footer">
-        <div class="footer-left">
-          
-        </div>
-        <div class="footer-right">
-          <b><p>🕒 {{ currentTime }}</p>
-          <p>📆 {{ currentDate }}</p></b>
-        </div>
+          <b>© FIPU &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 📆 {{ currentDate }} &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Made with 💓.</b>
       </footer>
     </div>
   </div>
 </template>
-
 
 <script>
 import loginSound from "@/assets/sounds/login-sound.mp3";
@@ -32,7 +25,6 @@ export default {
     return {
       loginAudio: new Audio(loginSound),
       registerAudio: new Audio(registerSound),
-      currentTime: this.getCurrentTime(),
       currentDate: this.getCurrentDate(),
     };
   },
@@ -43,22 +35,16 @@ export default {
     playRegisterSound() {
       this.registerAudio.play();
     },
-    getCurrentTime() {
-      const now = new Date();
-      const options = { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' };
-      return now.toLocaleTimeString('zh-CN', options); // Display time in Chinese format
-    },
     getCurrentDate() {
       const now = new Date();
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return now.toLocaleDateString('zh-CN', options); // Display date in Chinese
+      return now.toLocaleDateString('zh-CN', options); 
     },
   },
   mounted() {
     setInterval(() => {
-      this.currentTime = this.getCurrentTime();
       this.currentDate = this.getCurrentDate();
-    }, 1000); // Update every second
+    }, 1000); 
   },
 };
 </script>
@@ -104,7 +90,6 @@ export default {
   text-decoration: none;
   text-align: center;
   font-size: 25px;
-  font-family: 'Noto Serif SC', serif;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -114,30 +99,21 @@ export default {
 .cta-button:hover {
   background-color: #7f0000;
 }
-
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; 
   align-items: center;
-  background-color: whitesmoke; 
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); 
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  color: black;
+  color: whitesmoke;
   border-top: 5px solid black;
-  padding: 0px 30px;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding-top: 15px;
+  height: 70px; 
 }
 
-.footer-left {
-  display: flex;
-  align-items: center;
-}
-
-.footer-right {
-  text-align: right;
-} 
 </style>
 
