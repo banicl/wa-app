@@ -5,7 +5,7 @@
       <div class="cta-buttons">
         <router-link to="/Login" class="cta-button" @mouseenter="playLoginSound">
           登录 / Login 🔐 </router-link>
-        <router-link to="/registration" class="cta-button" @mouseenter="playRegisterSound">
+        <router-link to="/Registration" class="cta-button" @mouseenter="playRegisterSound">
         注册 / Register 📝</router-link>
       </div>
       <footer class="footer">
@@ -30,9 +30,11 @@ export default {
   },
   methods: {
     playLoginSound() {
+      console.log("Playing login sound");
       this.loginAudio.play();
     },
     playRegisterSound() {
+      console.log("Playing register sound");
       this.registerAudio.play();
     },
     getCurrentDate() {
@@ -53,7 +55,7 @@ export default {
 .home {
   position: relative;
   height: 100vh;
-  background-image: url('~@/assets/background.gif');
+  background-image: url('~@/assets/bg-gif.gif');
   background-size: cover;
   background-position: center;
 }
@@ -85,29 +87,28 @@ export default {
 
 .cta-button {
   padding: 0.5rem 1rem;
-  background-color: #b71c1c;
+  border: 1px solid white;
   color: white;
   text-decoration: none;
   text-align: center;
   font-size: 25px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #7f0000;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .footer {
   display: flex;
   justify-content: center; 
   align-items: center;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   color: whitesmoke;
-  border-top: 5px solid black;
+  border-top: 4px solid rgba(255, 255, 255, 0.6);
   position: absolute;
   bottom: 0;
   left: 0;

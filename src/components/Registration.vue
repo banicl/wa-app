@@ -1,6 +1,9 @@
 <template>
     <div class="register">
       <div class="background-overlay"></div>
+      <div class="home-icon" @click="goToMainPage">
+      <i class="fas fa-home"></i>
+    </div>
       <div class="overlay">
         <h2> 注册 / Registration 📝</h2>
         <div class="login-form">
@@ -24,12 +27,16 @@
         username: '',
         password: '',
         confirmPassword: '',
+        termsAccepted: false,
       };
     },
     methods: {
       register() {
         // Handle registration logic here
       },
+      goToMainPage() {
+      this.$router.push('/');
+    },
     },
   };
   </script>
@@ -48,7 +55,7 @@
 .register {
   position: relative;
   height: 100vh;
-  background-image: url('~@/assets/login-bg3.svg');
+  background-image: url('~@/assets/bg-gif.gif');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -78,7 +85,7 @@ input {
 }
 
 button {
-  background-color: #ffb2b2;
+  background-color: rgba(0, 255, 0, 0.2);
   color: white;
   padding: 0.7rem 1rem;
   border: none;
@@ -89,7 +96,16 @@ button {
 }
 
 button:hover {
-  background-color: #ff8080;
+  background-color: rgba(0, 255, 0, 0.4);
+}
+
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 30px; 
+  font-size: 30px;
+  cursor: pointer;
+  color: white; 
 }
   </style>
   
