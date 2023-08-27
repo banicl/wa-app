@@ -2,7 +2,7 @@
     <div class="levels-menu">
     <audio ref="backgroundMusic" src="@/assets/sounds/choose-level.mp3" autoplay></audio>
       <div class="overlay">
-        <h1>✨ 选择要玩的级别! ✨</h1>
+        <h1> 选择要玩的级别! 🎲</h1>
         <h2>Choose a level to play!</h2>
         <div class="level-buttons">
           <router-link to="/Level1" class="level-button" v-on:mouseenter.native="playLevel1Sound">
@@ -107,56 +107,58 @@ export default {
 };
 </script>
   
-  <style scoped>
-  .levels-menu {
-    position: relative;
-    height: 100vh;
-    background-image: url('~@/assets/levels-gif4.gif');
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .level-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .level-button {
-    padding: 1rem 2rem;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid white;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width:300px;
-  }
-  
-  .level-button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  </style>
+<style scoped>
+
+h2{
+    margin-bottom:50px;
+}
+.levels-menu {
+  position: relative;
+  height: 100vh;
+  background-image: url('~@/assets/levels-gif4.gif');
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.level-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.level-button {
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 300px;
+}
+
+.level-button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+</style>
   
