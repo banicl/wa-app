@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <audio ref="backgroundMusic" src="@/assets/sounds/background-music.mp3" loop autoplay></audio>
     <div class="overlay">
       <img src="@/assets/title.png" alt="Home Image" class="home-image" />
       <div class="cta-buttons">
@@ -47,6 +48,8 @@ export default {
     setInterval(() => {
       this.currentDate = this.getCurrentDate();
     }, 1000); 
+    this.$refs.backgroundMusic.volume = 0.3;
+    this.$refs.backgroundMusic.play();
   },
 };
 </script>
@@ -117,4 +120,3 @@ export default {
 }
 
 </style>
-

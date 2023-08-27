@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../components/Home.vue';
 import Login from '../components/Login.vue';
 import Registration from '../components/Registration.vue';
+import LevelsMenu from '../components/LevelsMenu.vue';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,10 @@ const routes = [
         path: '/Registration',
         component: Registration,
     },
+    {
+        path: '/LevelsMenu',
+        component: LevelsMenu,
+      },
 ];
 
 const router = new VueRouter({
