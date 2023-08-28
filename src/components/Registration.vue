@@ -1,5 +1,6 @@
 <template>
     <div class="register">
+    <audio ref="backgroundMusic" src="@/assets/sounds/register-here.mp3" autoplay></audio>
       <div class="background-overlay"></div>
       <div class="home-icon" @click="goToMainPage">
       <i class="fas fa-home"></i>
@@ -36,6 +37,10 @@
       },
       goToMainPage() {
       this.$router.push('/');
+    },
+    mounted() {
+    this.$refs.backgroundMusic.volume = 1;
+    this.$refs.backgroundMusic.play();
     },
     },
   };

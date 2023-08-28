@@ -6,34 +6,34 @@
         <h2>Choose a level to play!</h2>
         <div class="level-buttons">
           <router-link to="/Level1" class="level-button" v-on:mouseenter.native="playLevel1Sound">
-            等级 / Level 1
+            等级 / Level 1 👋
           </router-link>
           <router-link to="/Level2" class="level-button" v-on:mouseenter.native="playLevel2Sound">
-            等级 / Level 2
+            等级 / Level 2 🔢
           </router-link>
           <router-link to="/Level3" class="level-button" v-on:mouseenter.native="playLevel3Sound">
-            等级 / Level 3
+            等级 / Level 3 🌍
           </router-link>
           <router-link to="/Level4" class="level-button" v-on:mouseenter.native="playLevel4Sound">
-            等级 / Level 4
+            等级 / Level 4 🐅
           </router-link>
           <router-link to="/Level5" class="level-button" v-on:mouseenter.native="playLevel5Sound">
-            等级 / Level 5
+            等级 / Level 5 👪
           </router-link>
           <router-link to="/Level6" class="level-button" v-on:mouseenter.native="playLevel6Sound">
-            等级 / Level 6
+            等级 / Level 6 🐶
           </router-link>
           <router-link to="/Level7" class="level-button" v-on:mouseenter.native="playLevel7Sound">
-            等级 / Level 7
+            等级 / Level 7 🍎
           </router-link>
           <router-link to="/Level8" class="level-button" v-on:mouseenter.native="playLevel8Sound">
-            等级 / Level 8
+            等级 / Level 8 🍔
           </router-link>
           <router-link to="/Level9" class="level-button" v-on:mouseenter.native="playLevel9Sound">
-            等级 / Level 9
+            等级 / Level 9 📚
           </router-link>
           <router-link to="/Level10" class="level-button" v-on:mouseenter.native="playLevel10Sound">
-            等级 / Level 10
+            等级 / Level 10 🏥
           </router-link>
         </div>
       </div>
@@ -161,4 +161,3 @@ h2{
   background-color: rgba(255, 255, 255, 0.5);
 }
 </style>
-  

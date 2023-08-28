@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <audio ref="backgroundMusic" src="@/assets/sounds/welcome-back.mp3" autoplay></audio>
     <div class="background-overlay"></div>
     <div class="home-icon" @click="goToMainPage">
       <i class="fas fa-home"></i>
@@ -34,6 +35,10 @@ export default {
     goToMainPage() {
       this.$router.push('/');
     },
+    mounted() {
+    this.$refs.backgroundMusic.volume = 1;
+    this.$refs.backgroundMusic.play();
+  },
   },
 };
 </script>
