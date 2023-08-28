@@ -6,21 +6,36 @@
         <h2>Hello! What's your name?</h2>
         <div class="study-part">
           <div class="study-text">
+            <h3>
+              Welcome to Level 1! 
+            </h3>
             <p>
-              Welcome to Level 1! In this level, you'll learn some basic Chinese greetings and phrases.
-            </p>
-            <p>
+              In this level, you'll learn some basic Chinese greetings and phrases.<br>
               China is a beautiful country with a rich history and culture. It's known for its delicious food, the Great Wall, and the cute giant pandas!
             </p>
           </div>
           <div class="study-images">
-            <img src="@/assets/background.jpg" alt="China Image 1" />
-            <img src="@/assets/background.jpg" alt="China Image 2" />
-            <img src="@/assets/background.jpg" alt="China Image 3" />
+            <img src="@/assets/ni.gif" alt="Nihao 1" />
+            <img src="@/assets/hao.gif" alt="Nihao 2" />
           </div>
         </div>
-        <div class="video-container">
-          <iframe width="560" height="315" src="https://www.youtube.com/watch?v=m_rDIzj6DRE" frameborder="0" allowfullscreen></iframe>
+        <div class="more-content">
+          <h2>Practice What You've Learned</h2>
+          <p>
+            Now that you've learned how to say "Nihao," try practicing with your friends and family! It's a fun way to greet each other and learn more about different cultures.
+          </p>
+          <p>
+            Keep exploring the rest of the levels to learn even more exciting things about China and the Chinese language. 加油! (Jiā yóu!) Keep up the good work!
+          </p>
+        </div>
+        <div class="more-content">
+          <h2>Practice What You've Learned</h2>
+          <p>
+            Now that you've learned how to say "Nihao," try practicing with your friends and family! It's a fun way to greet each other and learn more about different cultures.
+          </p>
+          <p>
+            Keep exploring the rest of the levels to learn even more exciting things about China and the Chinese language. 加油! (Jiā yóu!) Keep up the good work!
+          </p>
         </div>
         <div class="more-content">
           <h2>Practice What You've Learned</h2>
@@ -43,10 +58,11 @@ export default {
 </script>
 
 <style scoped>
+
 .level-1 {
   position: relative;
   height: 100vh;
-  background-image: url('~@/assets/colors.gif');
+  background-image: url('~@/assets/levels-background.svg');
   background-size: cover;
   background-position: center;
 }
@@ -57,17 +73,18 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
 }
 
 .frame {
-  padding: 40px;
-  background-color: rgba(255, 255, 255, 0.3);
+  padding: 20px 50px 50px 50px;
+  padding-left: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid white;
   border-radius: 10px;
   max-width: 1200px;
@@ -78,10 +95,11 @@ export default {
 
 h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 50px;
 }
 
 .study-part {
+  margin-top:50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,12 +107,13 @@ h2 {
 }
 
 .study-text {
+  text-align: left;
   flex: 1;
   padding: 20px;
 }
 
 .study-images img {
-  max-width: 100px;
+  max-width: 150px;
   height: auto;
   margin: 0 10px;
 }
