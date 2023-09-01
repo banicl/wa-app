@@ -1,5 +1,8 @@
 <template>
     <div class="levels-menu">
+    <div class="user-profile-icon" @click="goToUserProfile">
+      <i class="fas fa-user"></i>
+    </div>
     <audio ref="backgroundMusic" src="@/assets/sounds/choose-level.mp3" autoplay></audio>
       <div class="overlay">
         <h1> 选择要玩的级别! 🎲</h1>
@@ -35,12 +38,18 @@
           <router-link to="/Level10" class="level-button" v-on:mouseenter.native="playLevel10Sound">
             等级 / Level 10 🏥
           </router-link>
+          <router-link to="/UserProfile" class="level-button">
+            USER PROFILE
+          </router-link>
         </div>
       </div>
     </div>
   </template>
   
 <script>
+
+import { mapGetters } from 'vuex';
+
 import Level1Sound from "@/assets/sounds/level1.mp3";
 import Level2Sound from "@/assets/sounds/level2.mp3";
 import Level3Sound from "@/assets/sounds/level3.mp3";
@@ -99,10 +108,20 @@ export default {
     playLevel10Sound() {
       this.Level10Sound.play();
     },
+    goToUserProfile() {
+      this.$router.push('/UserProfile');
+    },
   },
   mounted() {
     this.$refs.backgroundMusic.volume = 1;
     this.$refs.backgroundMusic.play();
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated']),
+  },
+  created() {
+    // Check if the user is authenticated when the component is created
+    console.log('Is authenticated:', this.isAuthenticated);
   },
 };
 </script>
@@ -159,5 +178,14 @@ h2{
 
 .level-button:hover {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.user-profile-icon {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  font-size: 400px !important;
+  cursor: pointer !important;
+  color: white !important;
 }
 </style>
