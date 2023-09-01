@@ -7,13 +7,17 @@
     </div>
       <div class="overlay">
         <h2> 注册 / Registration 📝</h2>
+        <br>
+          <p v-if="passwordMismatch" class="error-message">Passwords do not match. 😞</p>
+          <p v-if="registrationFailed" class="error-message">Username taken. 😢 Please try another one.</p>
         <div class="login-form">
           <form @submit.prevent="register">
             <input type="text" v-model="username" placeholder="Username" required />
             <input type="password" v-model="password" placeholder="Password" required />
             <input type="password" v-model="confirmPassword" placeholder="Confirm Password" required />
             <button type="submit">🎉 Sign Up!</button>
-          </form><br>
+          </form>
+          <br>
           <p>Already have an account? <router-link to="/login">Log in here!</router-link>💫</p>
         </div>
       </div>
@@ -21,6 +25,8 @@
   </template>
   
   <script>
+  import axios from 'axios';
+  
   export default {
     name: 'Register',
     data() {
@@ -29,19 +35,44 @@
         password: '',
         confirmPassword: '',
         termsAccepted: false,
+        passwordMismatch: false, 
+        registrationFailed: false, 
       };
     },
     methods: {
-      register() {
-        // Handle registration logic here
+      async register() {
+        try {
+          if (this.password !== this.confirmPassword) {
+            this.passwordMismatch = true; 
+            this.registrationFailed = false; 
+            return;
+          }
+  
+          const response = await axios.post('http://localhost:3000/api/auth/register', {
+            username: this.username,
+            password: this.password,
+            confirmPassword: this.confirmPassword,
+          });
+  
+          if (response.status === 201) {
+            this.$router.push('/login');
+          } else {
+            this.registrationFailed = true; // Set the registration failure message
+            this.passwordMismatch = false; // Reset password mismatch message
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          this.registrationFailed = true; // Set the registration failure message
+          this.passwordMismatch = false; // Reset password mismatch message
+        }
       },
       goToMainPage() {
-      this.$router.push('/');
-    },
-    mounted() {
-    this.$refs.backgroundMusic.volume = 1;
-    this.$refs.backgroundMusic.play();
-    },
+        this.$router.push('/');
+      },
+      mounted() {
+        this.$refs.backgroundMusic.volume = 1;
+        this.$refs.backgroundMusic.play();
+      },
     },
   };
   </script>

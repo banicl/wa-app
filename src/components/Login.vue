@@ -7,38 +7,58 @@
     </div>
     <div class="overlay">
       <h2> 登录 / Login 🔐</h2>
-    <div class="login-form">
-      <form @submit.prevent="login">
-        <input type="text" v-model="username" placeholder="Username" required />
-        <input type="password" v-model="password" placeholder="Password" required />
-        <button type="submit">🚀 Let's Go!</button>
-      </form><br>
-      <p>Don't have an account? <router-link to="/registration">Register here!</router-link>🌟</p>
-    </div>
+      <br>
+      <p v-if="loginFailed" class="error-message">Login failed. 💔 Please check your credentials.</p>
+      <div class="login-form">
+        <form @submit.prevent="login">
+          <input type="text" v-model="username" placeholder="Username" required />
+          <input type="password" v-model="password" placeholder="Password" required />
+          <button type="submit">🚀 Let's Go!</button>
+        </form><br>
+        <p>Don't have an account? <router-link to="/registration">Register here!</router-link>🌟</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Login',
   data() {
     return {
       username: '',
       password: '',
+      loginFailed: false, 
     };
   },
   methods: {
-    login() {
-      
+    async login() {
+      try {
+        const response = await axios.post('http://localhost:3000/api/auth/login', {
+          username: this.username,
+          password: this.password,
+        });
+
+        if (response.status === 200) {
+          this.$router.push('/LevelsMenu');
+        } else {
+          this.loginFailed = true; 
+          console.error('Login failed.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        this.loginFailed = true; 
+      }
     },
     goToMainPage() {
       this.$router.push('/');
     },
     mounted() {
-    this.$refs.backgroundMusic.volume = 1;
-    this.$refs.backgroundMusic.play();
-  },
+      this.$refs.backgroundMusic.volume = 1;
+      this.$refs.backgroundMusic.play();
+    },
   },
 };
 </script>
