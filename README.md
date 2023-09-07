@@ -32,3 +32,7 @@ Dobrodošli u aplikaciju za učenje kineskog jezika! 🌈 Ova je aplikacija osmi
   
 
 Made with ❤️.
+
+Fakultet Informatike u Puli (🏫 Website)
+Kolegij: Web aplikacije (📚 Course Notion)
+Mentor: doc. dr. sc. Nikola Tanković 👨‍🏫
