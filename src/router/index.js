@@ -4,7 +4,7 @@ import Home from '../components/Home.vue';
 import Login from '../components/Login.vue';
 import Registration from '../components/Registration.vue';
 import LevelsMenu from '../components/LevelsMenu.vue';
-import store from '@/store/index'; 
+import UserProfile from '../components/UserProfile.vue';
 import Level1 from '../components/Level1.vue';
 import Level2 from '../components/Level2.vue';
 import Level3 from '../components/Level3.vue';
@@ -37,8 +37,7 @@ const routes = [
   },
   {
     path: '/UserProfile',
-    name: 'UserProfile',
-    component: () => import('@/components/UserProfile.vue'), 
+    component: UserProfile,
     meta: { requiresAuth: true },
   },
   {
@@ -81,18 +80,12 @@ const routes = [
     path: '/Level10',
     component: Level10,
   },
+
 ];
 
 const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
-      next('/Login');
-    } else {
-      next();
-    }
-  });
 
 export default router;

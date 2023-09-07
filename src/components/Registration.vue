@@ -1,81 +1,80 @@
 <template>
-    <div class="register">
+  <div class="register">
     <audio ref="backgroundMusic" src="@/assets/sounds/register-here.mp3" autoplay></audio>
-      <div class="background-overlay"></div>
-      <div class="home-icon" @click="goToMainPage">
+    <div class="background-overlay"></div>
+    <div class="home-icon" @click="goToMainPage">
       <i class="fas fa-home"></i>
     </div>
-      <div class="overlay">
-        <h2> 注册 / Registration 📝</h2>
+    <div class="overlay">
+      <h2> 注册 / Registration 📝</h2>
+      <br>
+      <p v-if="passwordMismatch" class="error-message">Passwords do not match. 😞</p>
+      <p v-if="registrationFailed" class="error-message">Registration failed. 😢 Please try again.</p>
+      <div class="login-form">
+        <form @submit.prevent="register">
+          <input type="text" v-model="username" placeholder="Username" required />
+          <input type="password" v-model="password" placeholder="Password" required />
+          <input type="password" v-model="confirmPassword" placeholder="Confirm Password" required />
+          <button type="submit">🎉 Sign Up!</button>
+        </form>
         <br>
-          <p v-if="passwordMismatch" class="error-message">Passwords do not match. 😞</p>
-          <p v-if="registrationFailed" class="error-message">Username taken. 😢 Please try another one.</p>
-        <div class="login-form">
-          <form @submit.prevent="register">
-            <input type="text" v-model="username" placeholder="Username" required />
-            <input type="password" v-model="password" placeholder="Password" required />
-            <input type="password" v-model="confirmPassword" placeholder="Confirm Password" required />
-            <button type="submit">🎉 Sign Up!</button>
-          </form>
-          <br>
-          <p>Already have an account? <router-link to="/login">Log in here!</router-link>💫</p>
-        </div>
+        <p>Already have an account? <router-link to="/login">Log in here!</router-link>💫</p>
       </div>
     </div>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    name: 'Register',
-    data() {
-      return {
-        username: '',
-        password: '',
-        confirmPassword: '',
-        termsAccepted: false,
-        passwordMismatch: false, 
-        registrationFailed: false, 
-      };
-    },
-    methods: {
-      async register() {
-        try {
-          if (this.password !== this.confirmPassword) {
-            this.passwordMismatch = true; 
-            this.registrationFailed = false; 
-            return;
-          }
-  
-          const response = await axios.post('http://localhost:3000/api/auth/register', {
-            username: this.username,
-            password: this.password,
-            confirmPassword: this.confirmPassword,
-          });
-  
-          if (response.status === 201) {
-            this.$router.push('/login');
-          } else {
-            this.registrationFailed = true; // Set the registration failure message
-            this.passwordMismatch = false; // Reset password mismatch message
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          this.registrationFailed = true; // Set the registration failure message
-          this.passwordMismatch = false; // Reset password mismatch message
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'Register',
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: '',
+      passwordMismatch: false,
+      registrationFailed: false,
+    };
+  },
+  methods: {
+    async register() {
+      try {
+        if (this.password !== this.confirmPassword) {
+          this.passwordMismatch = true;
+          this.registrationFailed = false;
+          return;
         }
-      },
-      goToMainPage() {
-        this.$router.push('/');
-      },
-      mounted() {
-        this.$refs.backgroundMusic.volume = 1;
-        this.$refs.backgroundMusic.play();
-      },
+
+        const response = await axios.post('http://localhost:3000/api/register', {
+          username: this.username,
+          password: this.password,
+        });
+
+        if (response.status === 201) {
+          console.log('Registration successful.');
+          this.$router.push('/Login');
+        } else {
+          this.registrationFailed = true;
+          this.passwordMismatch = false;
+        }
+      } catch (error) {
+        console.error('Registration failed:', error);
+        this.registrationFailed = true;
+        this.passwordMismatch = false;
+      }
     },
-  };
-  </script>
+    goToMainPage() {
+      this.$router.push('/');
+    },
+    mounted() {
+      this.$refs.backgroundMusic.volume = 1;
+      this.$refs.backgroundMusic.play();
+    },
+  },
+};
+</script>
   
   <style scoped>
   

@@ -30,26 +30,24 @@ export default {
     return {
       username: '',
       password: '',
-      loginFailed: false, 
+      loginFailed: false,
     };
   },
   methods: {
     async login() {
       try {
-        const response = await axios.post('http://localhost:3000/api/auth/login', {
+        const response = await axios.post('http://localhost:3000/api/login', {
           username: this.username,
           password: this.password,
         });
 
         if (response.status === 200) {
+          console.log('Login successful.');
           this.$router.push('/LevelsMenu');
-        } else {
-          this.loginFailed = true; 
-          console.error('Login failed.');
         }
       } catch (error) {
-        console.error('Error:', error);
-        this.loginFailed = true; 
+        console.error('Login failed:', error);
+        this.loginFailed = true; // Show a login error message
       }
     },
     goToMainPage() {

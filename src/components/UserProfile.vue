@@ -1,33 +1,18 @@
 <template>
-    <div class="user-profile">
-      <div class="profile-frame">
-        <i class="fas fa-user user-icon"></i>
-      </div>
-      <div class="user-info">
-        <h2>User Profile</h2>
-        <p v-if="user">{{ user.username }}</p>
-        <button @click="logout">Log Out</button>
-      </div>
+  <div class="user-profile">
+    <div class="profile-frame">
+      <i class="fas fa-user user-icon"></i>
     </div>
-  </template>
-  
-  <script>
-  import { mapGetters, mapActions } from 'vuex';
-  
-  export default {
-    name: 'UserProfile',
-    computed: {
-      ...mapGetters(['currentUser']),
-      user() {
-        console.log(this.currentUser);
-        return this.currentUser;
-      },
-    },
-    methods: {
-      ...mapActions(['logout']),
-    },
-  };
-  </script>
+    <div class="user-info">
+      <h2>User Profile</h2>
+      <button @click="logout">Log Out</button> <!-- Logout button -->
+    </div>
+  </div>
+</template>
+
+<script>
+
+</script>
   
   
   <style scoped>
