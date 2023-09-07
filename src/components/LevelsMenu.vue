@@ -41,14 +41,15 @@
           <router-link to="/UserProfile" class="level-button">
             USER PROFILE
           </router-link>
+          <router-link to="/test" class="level-button">
+            test
+          </router-link>
         </div>
       </div>
     </div>
   </template>
   
 <script>
-
-import { mapGetters } from 'vuex';
 
 import Level1Sound from "@/assets/sounds/level1.mp3";
 import Level2Sound from "@/assets/sounds/level2.mp3";
@@ -111,17 +112,13 @@ export default {
     goToUserProfile() {
       this.$router.push('/UserProfile');
     },
+    goToLink() {
+      this.$router.push('/test');
+    },
   },
   mounted() {
     this.$refs.backgroundMusic.volume = 1;
     this.$refs.backgroundMusic.play();
-  },
-  computed: {
-    ...mapGetters(['isAuthenticated']),
-  },
-  created() {
-    // Check if the user is authenticated when the component is created
-    console.log('Is authenticated:', this.isAuthenticated);
   },
 };
 </script>

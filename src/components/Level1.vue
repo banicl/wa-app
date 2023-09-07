@@ -2,139 +2,54 @@
   <div class="level-1">
     <audio ref="backgroundMusic" src="@/assets/sounds/level1/welcome-level1.mp3" autoplay></audio>
     <div class="overlay">
+      <div class="home-icon" @click="goToLevels">
+      <i class="fas fa-home"></i>
+    </div>
       <div class="frame">
         <hr class="divider" />
-        <h1>你好！ 你叫什么名字？👋</h1>
-        <h2>Hello! What's your name?</h2>
-        <div class="study-part">
-          <div class="study-text">
-            <h3>
-            Welcome to Level 1! 😊🌼
-            </h3>
-             <p>
+        <div v-if="!gameStarted">
+          <!-- Game Introduction -->
+          <h1>你好！Hello!👋</h1><br>
+          <p><b>Welcome to Level 1! 😊🌼</b><br>
             In this level, you'll learn some basic Chinese greetings and phrases. 👋🇨🇳<br>
-            China is a beautiful country with a rich history and culture. It's known for <br>its delicious food 🍜, the Great Wall 🏯, and the cute giant pandas! 🐼🎋<br>
-            First, learn how to say hello by pressing the big red button on the right. 🔴👉
-            </p>
-          </div>
-          <div class="study-images">
-            <img src="@/assets/ni.gif" alt="Nihao 1" />
-            <img src="@/assets/hao.gif" alt="Nihao 2" />
-          </div>
-          <div class="interactive-greeting">
-          <button @click="playHello">Say hello! 😊</button>
-          <div class="greeting-display">
-            <div class="chinese-characters">{{ greeting }}</div>
-          </div>
-        </div><br>
+            China is a beautiful country with a rich history and culture. It's known for<br> its delicious food 🍜, the Great Wall 🏯, and the cute giant pandas! 🐼🎋<br>
+            Start by pressing the big red button below. 🔴👇</p>
+            <hr class="divider" />
+          <!-- Add game start button -->
+          <button @click="startGame">Start Game</button>
         </div>
-        <div class="greetings-section">
-          <hr class="divider" /><br>
-          <h3 style="text-align: left;">
-            <span @click="playGreetingSection" style="cursor: pointer;">
-            <i class="fas fa-volume-up" style="margin-left: 10px;"></i>
-            </span>
-            Learn How to Greet at Different Times of the Day! 🌞🌆🌙<br>
-          </h3>
-          <p style="text-align: left;">
-            Explore the magic of greetings! Click on an image to learn how to greet your<br>friends and family at various times of the day. 👋 Spread smiles and joy! 😊🎉
-          </p>
-          <div class="greeting-buttons">
-            <div class="greeting-container" @click="playGoodMorningSound">
-              <button>
-                <img src="@/assets/good-morning.gif" alt="Morning" />
-              </button>
-              <div class="chinese-characters" style="color:#e74c3c">- Good morning! -</div>
-              <div class="chinese-characters">{{greetingMorning}}</div>
-            </div>
-            <div class="greeting-container" @click="playGoodAfternoonSound">
-              <button>
-                <img src="@/assets/good-afternoon.gif" alt="Afternoon" />
-              </button>
-              <div class="chinese-characters" style="color:#e74c3c">- Good afternoon! -</div>
-              <div class="chinese-characters">{{greetingAfternoon}}</div>
-            </div>
-            <div class="greeting-container" @click="playGoodEveningSound">
-              <button>
-                <img src="@/assets/good-evening.gif" alt="Evening" />
-              </button>
-              <div class="chinese-characters" style="color:#e74c3c">- Good evening! -</div>
-              <div class="chinese-characters">{{greetingEvening}}</div>
-            </div>
-          </div><br>
+        <div v-else>
+          <!-- Game Content -->
+          <GameContent @gameOver="handleGameOver" />
         </div>
-        <hr class="divider" /><br>
-        <div class="self-introduction-section">
-    <h3 style="text-align: left;">
-      <span style="cursor: pointer;">
-        <i class="fas fa-volume-up" style="margin-left: 10px;"></i>
-      </span>
-      Let's Learn How to Introduce Ourselves! 👋🎤
-    </h3>
-    <p style="text-align: left;">
-      It's fun to meet new friends! 🎉 Watch the video below 📹 to learn how <br>to introduce yourself in Chinese. Then, practice saying your name! 🗣️<br>
-      Ah! Look who's here, our buddy 刘慧心! 👋👀  Click on his name right<br> beside the video to find out what he has to say!
-    </p>
-    <div class="self-introduction">
-      <div class="text-container" style="text-align: left;">
-        <img src="@/assets/liu_naslov.png" alt="Liu" style="max-width: 100%; height: auto;" />
-      </div>
-      <div class="video-container">
-        <video controls width="100%">
-          <source src="/introduction.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      </div>
-      </div>
-      <hr class="divider" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import helloSound from "@/assets/sounds/level1/level1-nihao.mp3";
-import morningSound from "@/assets/sounds/level1/morning.mp3";
-import afternoonSound from "@/assets/sounds/level1/afternoon.mp3";
-import eveningSound from "@/assets/sounds/level1/evening.mp3";
-import greetingSectionSound from "@/assets/sounds/level1/greeting-section.mp3";
+import GameContent from "@/components/Level1-GameContent.vue"; 
 
 export default {
   name: 'Level1',
+  components: {
+    GameContent, // Register the game component
+  },
   data() {
     return {
-      greeting: '',
-      greetingMorning: '', 
-      greetingAfternoon: '',
-      greetingEvening: '',
-      helloSound: new Audio(helloSound),
-      morningSound: new Audio(morningSound),
-      afternoonSound: new Audio(afternoonSound),
-      eveningSound: new Audio(eveningSound),
-      greetingSectionSound: new Audio(greetingSectionSound),
+      gameStarted: false, // Add gameStarted state
     };
   },
   methods: {
-    playHello() {
-      this.greeting = 'nǐ hǎo';
-      const helloSound = new Audio(require('@/assets/sounds/level1/level1-nihao.mp3'));
-      helloSound.play();
+    startGame() {
+      // Add logic to start the game
+      this.gameStarted = true;
     },
-    playGoodMorningSound() {
-      this.greetingMorning = 'zǎo shàng hǎo'; 
-      this.morningSound.play();
+    handleGameOver() {
+      // Handle game over logic here, e.g., show a completion message
     },
-    playGoodAfternoonSound() {
-      this.greetingAfternoon = 'xià wǔ hǎo'; 
-      this.afternoonSound.play();
-    },
-    playGoodEveningSound() {
-      this.greetingEvening = 'wǎn shàng hǎo'; 
-      this.eveningSound.play();
-    },
-    playGreetingSection() {
-      this.greetingSectionSound.play();
+    goToLevels() {
+      this.$router.push('LevelsMenu');
     },
   },
   mounted() {
@@ -216,6 +131,11 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #C23020; 
 }
 
 .greeting-display {
@@ -233,10 +153,6 @@ button {
 .voice-icon {
   font-size: 1.5rem;
   cursor: pointer;
-}
-
-.voice-icon:hover {
-  color: #e74c3c; 
 }
 
 .greetings-section {
@@ -288,5 +204,14 @@ button img {
   width: 40%;
   padding-left: 10px;
   height: 100%; 
+}
+
+.home-icon {
+  position: absolute;
+  top: 20px;
+  left: 30px; 
+  font-size: 30px;
+  cursor: pointer;
+  color: white; 
 }
 </style>
