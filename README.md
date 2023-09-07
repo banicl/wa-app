@@ -33,7 +33,7 @@ Dobrodošli u aplikaciju za učenje kineskog jezika! 🌈 Ova je aplikacija osmi
 
 Made with ❤️.
 
-Fakultet Informatike u Puli [🏫 Website](https://fipu.unipu.hr/)
-Kolegij: Web aplikacije [📚 Course Notion](https://fiputreca.notion.site/fiputreca/Web-aplikacije-7ba8350d498546a78812399024edac44)
-Mentor: doc. dr. sc. Nikola Tanković 👨‍🏫
+Fakultet Informatike u Puli [🏫 Website](https://fipu.unipu.hr/)  
+Kolegij: Web aplikacije [📚 Course Notion](https://fiputreca.notion.site/fiputreca/Web-aplikacije-7ba8350d498546a78812399024edac44)  
+Mentor: doc. dr. sc. Nikola Tanković 👨‍🏫  
 
