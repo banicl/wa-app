@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import router from './router/index';
 
 Vue.use(Vuex);
 
@@ -37,10 +38,10 @@ export default new Vuex.Store({
       }
     },
     logout({ commit }) {
-      commit('SET_AUTHENTICATED', false);
-      commit('SET_CURRENT_USER', null);
+      commit('CLEAR_USER');
       localStorage.removeItem('authToken'); 
-      console.log('Logged out.');
+
+      router.push('/');
     },
   },
   getters: {

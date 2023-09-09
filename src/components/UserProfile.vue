@@ -5,13 +5,24 @@
     </div>
     <div class="user-info">
       <h2>User Profile</h2>
-      <button @click="logout">Log Out</button> <!-- Logout button -->
+      <button @click="performLogout">Log Out</button> <!-- Logout button -->
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 
+export default {
+  // Other component options
+
+  methods: {
+    ...mapActions(['logout']), // Map the 'logout' action from Vuex
+    performLogout() {
+      this.logout(); // Call the logout action
+    },
+  },
+};
 </script>
   
   

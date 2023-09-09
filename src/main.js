@@ -1,10 +1,12 @@
 import Vue from 'vue';
+import Vuex from 'vuex';
 import App from './App.vue';
 import vuetify from './plugins/vuetify';
 import router from './router/index';
 import store from './store'; // Import your Vuex store
 import axios from 'axios';
 
+Vue.use(Vuex);
 Vue.config.productionTip = false;
 
 // Check if the user is already authenticated using a stored token
