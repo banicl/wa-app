@@ -1,10 +1,9 @@
 <template>
   <div class="level-1">
-    <audio ref="backgroundMusic" src="@/assets/sounds/level1/welcome-level1.mp3" autoplay></audio>
     <div class="overlay">
       <div class="home-icon" @click="goToLevels">
       <i class="fas fa-home"></i>
-    </div>
+      </div>
       <div class="frame">
         <hr class="divider" />
         <div v-if="!gameStarted">
@@ -13,7 +12,7 @@
           <p><b>Welcome to Level 1! 😊🌼</b><br>
             In this level, you'll learn some basic Chinese greetings and phrases. 👋🇨🇳<br>
             China is a beautiful country with a rich history and culture. It's known for<br> its delicious food 🍜, the Great Wall 🏯, and the cute giant pandas! 🐼🎋<br>
-            Start by pressing the big red button below. 🔴👇</p>
+            <br>Start by pressing the big red button below. 🔴👇</p>
             <hr class="divider" />
           <!-- Add game start button -->
           <button @click="startGame">Start Game</button>
@@ -33,28 +32,24 @@ import GameContent from "@/components/Level1-GameContent.vue";
 export default {
   name: 'Level1',
   components: {
-    GameContent, // Register the game component
+    GameContent, 
   },
   data() {
     return {
-      gameStarted: false, // Add gameStarted state
+      gameStarted: false, 
     };
   },
   methods: {
     startGame() {
-      // Add logic to start the game
       this.gameStarted = true;
     },
     handleGameOver() {
-      // Handle game over logic here, e.g., show a completion message
+    const level1Score = 200;
+    this.$store.dispatch('updateTotalScore', level1Score);
     },
     goToLevels() {
       this.$router.push('LevelsMenu');
     },
-  },
-  mounted() {
-    this.$refs.backgroundMusic.volume = 1;
-    this.$refs.backgroundMusic.play();
   },
 };
 </script>

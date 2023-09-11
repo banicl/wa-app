@@ -8,6 +8,8 @@ export default new Vuex.Store({
   state: {
     isAuthenticated: false,
     currentUser: null,
+    totalScore: 0,
+    
   },
   mutations: {
     SET_AUTHENTICATED(state, isAuthenticated) {
@@ -15,6 +17,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_USER(state, user) {
       state.currentUser = user;
+    },
+    SET_TOTAL_SCORE(state, score) {
+      state.totalScore = score;
     },
   },
   actions: {
@@ -43,10 +48,14 @@ export default new Vuex.Store({
 
       router.push('/');
     },
+    updateTotalScore({ commit }, score) {
+      commit('SET_TOTAL_SCORE', score);
+    },
   },
   getters: {
     isAuthenticated: (state) => state.isAuthenticated,
     currentUser: (state) => state.currentUser,
+    totalScore: (state) => state.totalScore,
   },
 });
 

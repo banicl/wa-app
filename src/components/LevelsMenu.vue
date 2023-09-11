@@ -1,10 +1,10 @@
 <template>
     <div class="levels-menu">
-    <div class="user-profile-icon" @click="goToUserProfile">
-      <i class="fas fa-user"></i>
-    </div>
     <audio ref="backgroundMusic" src="@/assets/sounds/choose-level.mp3" autoplay></audio>
       <div class="overlay">
+        <div class="user-profile-icon" @click="goToUserProfile">
+          <i class="fas fa-user"></i>
+        </div>
         <h1> 选择要玩的级别! 🎲</h1>
         <h2>Choose a level to play!</h2>
         <div class="level-buttons">
@@ -37,12 +37,6 @@
           </router-link>
           <router-link to="/Level10" class="level-button" v-on:mouseenter.native="playLevel10Sound">
             等级 / Level 10 🏥
-          </router-link>
-          <router-link to="/UserProfile" class="level-button">
-            USER PROFILE
-          </router-link>
-          <router-link to="/test" class="level-button">
-            test
           </router-link>
         </div>
       </div>
@@ -112,9 +106,6 @@ export default {
     goToUserProfile() {
       this.$router.push('/UserProfile');
     },
-    goToLink() {
-      this.$router.push('/test');
-    },
   },
   mounted() {
     this.$refs.backgroundMusic.volume = 1;
@@ -180,8 +171,8 @@ h2{
 .user-profile-icon {
   position: absolute !important;
   top: 20px !important;
-  right: 20px !important;
-  font-size: 400px !important;
+  right: 30px !important;
+  font-size: 30px !important;
   cursor: pointer !important;
   color: white !important;
 }

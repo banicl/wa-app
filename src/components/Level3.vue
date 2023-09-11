@@ -1,6 +1,5 @@
 <template>
     <div class="level-1">
-      <audio ref="backgroundMusic" src="@/assets/sounds/level1/welcome-level1.mp3" autoplay></audio>
       <div class="overlay">
         <div class="home-icon" @click="goToLevels">
         <i class="fas fa-home"></i>
@@ -12,7 +11,7 @@
             <h1>你是哪里人？Where are you from?🌍</h1><br>
             <p><b>Welcome to Level 3! 😊🌼</b><br>
                 In this level, you'll learn about countries from around the world and <br>their names in Chinese. 🗺️ 
-                Explore the diverse cultures, traditions,<br> and landmarks represented by these countries. 🌟
+                Explore the diverse cultures, traditions,<br> and landmarks represented by these countries. 🌟<br>
               <br>Start by pressing the big red button below. 🔴👇</p>
               <hr class="divider" />
             <!-- Add game start button -->
@@ -46,15 +45,12 @@
         this.gameStarted = true;
       },
       handleGameOver() {
-        // Handle game over logic here, e.g., show a completion message
+        const level3Score = 300;
+        this.$store.dispatch('updateTotalScore', level3Score);
       },
       goToLevels() {
         this.$router.push('LevelsMenu');
       },
-    },
-    mounted() {
-      this.$refs.backgroundMusic.volume = 1;
-      this.$refs.backgroundMusic.play();
     },
   };
   </script>

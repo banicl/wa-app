@@ -20,13 +20,13 @@
       <div v-if="correctAnswer">
         <br>
         <audio ref="correctSound" src="@/assets/sounds/correct-answer.mp3"></audio>
-        <p>Correct! Moving to the next image.🎉👍</p>
+        <p>Correct! Moving to the next image.🎉👍<br><b>+25 points 💯</b></p>
       </div>
 
       <div v-if="wrongAnswer">
         <br>
         <audio ref="wrongSound" src="@/assets/sounds/wrong-answer.mp3"></audio>
-        <p>Wrong answer. Please try again.❌🙁</p>
+        <p>Wrong answer. Please try again.❌🙁<br><b>-5 points</b></p>
       </div>
   
       <div v-if="gameOver">
@@ -80,7 +80,7 @@
           setTimeout(() => {
             this.correctAnswer = false;
             this.moveToNextImage();
-          }, 4000); 
+          }, 2000); 
         } else {
           this.wrongAnswer = true;
           this.$nextTick(() => {

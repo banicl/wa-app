@@ -9,7 +9,7 @@
       <h2> 注册 / Registration 📝</h2>
       <br>
       <p v-if="passwordMismatch" class="error-message">Passwords do not match. 😞</p>
-      <p v-if="registrationFailed" class="error-message">Registration failed. 😢 Please try again.</p>
+      <p v-if="registrationFailed" class="error-message">Username taken. 😢 Please try another one.</p>
       <div class="login-form">
         <form @submit.prevent="register">
           <input type="text" v-model="username" placeholder="Username" required />

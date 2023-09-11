@@ -1,6 +1,5 @@
 <template>
     <div class="level-1">
-      <audio ref="backgroundMusic" src="@/assets/sounds/level1/welcome-level1.mp3" autoplay></audio>
       <div class="overlay">
         <div class="home-icon" @click="goToLevels">
         <i class="fas fa-home"></i>
@@ -14,7 +13,7 @@
             In this level, you'll dive into the world of Chinese numbers! <br>
             China's numerical system is fascinating and dates back thousands of years. 🕰️<br>
             Get ready to learn how to count from 1 to 10 in Chinese! 🧮🎉<br>
-            Start by pressing the big red button below. 🔴👇</p>
+            <br>Start by pressing the big red button below. 🔴👇</p>
               <hr class="divider" />
             <!-- Add game start button -->
             <button @click="startGame">Start Game</button>
@@ -47,15 +46,12 @@
         this.gameStarted = true;
       },
       handleGameOver() {
-        // Handle game over logic here, e.g., show a completion message
+        const level2Score = 200;
+        this.$store.dispatch('updateTotalScore', level2Score);
       },
       goToLevels() {
         this.$router.push('LevelsMenu');
       },
-    },
-    mounted() {
-      this.$refs.backgroundMusic.volume = 1;
-      this.$refs.backgroundMusic.play();
     },
   };
   </script>

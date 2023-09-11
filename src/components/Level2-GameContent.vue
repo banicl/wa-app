@@ -23,13 +23,13 @@
         <div v-if="correctAnswer">
           <br>
           <audio ref="correctSound" src="@/assets/sounds/correct-answer.mp3"></audio>
-          <p>Correct! Keep it up.🎉👍</p>
+          <p>Correct! Keep it up.🎉👍<br><b>+20 points 💯</b></p>
         </div>
   
         <div v-if="wrongAnswer">
           <br>
           <audio ref="wrongSound" src="@/assets/sounds/wrong-answer.mp3"></audio>
-          <p>Oops, that's not the right number. Try again.❌🙁</p>
+          <p>Oops, that's not the right number. Try again.❌🙁<br><b>-5 points</b></p>
         </div>
       </div>
   
