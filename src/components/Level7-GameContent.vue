@@ -131,6 +131,7 @@
           this.userInput = ''; // Clear the user input for the next fruit
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {

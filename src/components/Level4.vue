@@ -41,9 +41,10 @@ Each year in the Chinese Zodiac is<br> associated with an animal sign. Let's see
         this.gameStarted = true;
       },
       handleGameOver() {
-        const level4Score = 300;
-        this.$store.dispatch('updateTotalScore', level4Score);
-      },
+    const level4Score = 300;
+    this.$store.dispatch('updateTotalScore', level4Score);
+    console.log('Game over! Total score updated.');
+    },
       goToLevels() {
         this.$router.push('LevelsMenu');
       },

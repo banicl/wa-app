@@ -130,6 +130,7 @@
           this.userInput = ''; 
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {

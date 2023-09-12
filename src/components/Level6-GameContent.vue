@@ -86,7 +86,6 @@
         const soundFile = this.animals[this.currentAnimalIndex].sound;
         const audio = new Audio(require(`@/assets/sounds/${soundFile}`));
         
-        // Add an event listener for the 'ended' event
         audio.addEventListener('ended', () => {
           this.moveToNextAnimal();
         });
@@ -98,6 +97,7 @@
           this.currentAnimalIndex++;
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
           this.score = 100;
         }
       },

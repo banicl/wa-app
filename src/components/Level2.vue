@@ -46,9 +46,10 @@
         this.gameStarted = true;
       },
       handleGameOver() {
-        const level2Score = 200;
-        this.$store.dispatch('updateTotalScore', level2Score);
-      },
+    const level2Score = 200;
+    this.$store.dispatch('updateTotalScore', level2Score);
+    console.log('Game over! Total score updated.');
+    },
       goToLevels() {
         this.$router.push('LevelsMenu');
       },

@@ -7,18 +7,18 @@
       <div class="frame">
         <hr class="divider" />
         <div v-if="!gameStarted">
-          <!-- Game Introduction -->
+
           <h1>你好！Hello!👋</h1><br>
           <p><b>Welcome to Level 1! 😊🌼</b><br>
             In this level, you'll learn some basic Chinese greetings and phrases. 👋🇨🇳<br>
             China is a beautiful country with a rich history and culture. It's known for<br> its delicious food 🍜, the Great Wall 🏯, and the cute giant pandas! 🐼🎋<br>
             <br>Start by pressing the big red button below. 🔴👇</p>
             <hr class="divider" />
-          <!-- Add game start button -->
+
           <button @click="startGame">Start Game</button>
         </div>
         <div v-else>
-          <!-- Game Content -->
+
           <GameContent @gameOver="handleGameOver" />
         </div>
       </div>
@@ -46,6 +46,7 @@ export default {
     handleGameOver() {
     const level1Score = 200;
     this.$store.dispatch('updateTotalScore', level1Score);
+    console.log('Game over! Total score updated.');
     },
     goToLevels() {
       this.$router.push('LevelsMenu');

@@ -176,6 +176,7 @@
           this.currentFamilyMemberIndex++;
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {

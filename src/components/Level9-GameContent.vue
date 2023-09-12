@@ -127,6 +127,7 @@ export default {
         this.currentWordIndex++;
       } else {
         this.gameOver = true;
+        this.$emit('gameOver');
       }
     },
     goToLevels() {

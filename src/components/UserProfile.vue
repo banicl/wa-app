@@ -1,23 +1,23 @@
 <template>
   <div class="user-profile">
     <div class="overlay">
-    <div class="home-icon" @click="goToLevels">
-      <i class="fas fa-home"></i>
+      <div class="home-icon" @click="goToLevels">
+        <i class="fas fa-home"></i>
       </div>
-    <div class="profile-frame">
-      <div class="user-content">
-        <i class="fas fa-user user-icon"></i><br><br>
-        <h2>USER PROFILE</h2>
-        <div class="username" v-if="currentUser">
+      <div class="profile-frame">
+        <div class="user-content">
+          <i class="fas fa-user user-icon"></i><br><br>
+          <h2>USER PROFILE</h2>
+          <div class="username" v-if="currentUser">
             <p>Username: <b>{{ currentUser.username }}</b> 😊</p>
           </div>
-        <div class="total-score">
-          <p>Total Score: <b>{{ totalScore }}</b> 🏆</p>
-        </div><br>
-        <button @click="performLogout">Log Out</button>
+          <div class="total-score">
+            <p>Total Score: <b>{{ computedTotalScore }}</b> 🏆</p>
+          </div><br>
+          <button @click="performLogout">Log Out</button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -26,7 +26,10 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['totalScore', 'currentUser']),
+    ...mapGetters(['currentUser', 'totalScore']),
+    computedTotalScore() {
+      return this.totalScore;
+    },
   },
   methods: {
     ...mapActions(['logout']),
@@ -37,11 +40,9 @@ export default {
       this.$router.push('LevelsMenu');
     },
   },
-  mounted() {
-    console.log(this.user); // Log the user object to the console
-  },
 };
 </script>
+
 
 <style scoped>
 .user-profile {

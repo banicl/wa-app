@@ -114,6 +114,7 @@
           this.currentYearIndex++;
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {

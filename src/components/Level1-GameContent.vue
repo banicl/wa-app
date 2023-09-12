@@ -6,8 +6,7 @@
         <transition name="fade" mode="out-in">
         <img :src="currentImage" alt="Image" />
         </transition>
-  
-        <!-- Display the answer choices in two rows -->
+
         <div class="choice-rows">
           <div class="choice-row" v-for="(choice, index) in answerChoices" :key="index">
             <button class="game-choice-button" @click="checkAnswer(choice)">
@@ -97,6 +96,7 @@
           this.currentImageIndex++;
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {

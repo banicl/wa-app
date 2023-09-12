@@ -114,6 +114,7 @@
           this.currentImageIndex++;
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {

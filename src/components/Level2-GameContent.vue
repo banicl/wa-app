@@ -67,6 +67,7 @@
           this.currentNumber = this.arabicNumbers[this.currentNumberIndex];
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       checkNumber(chineseNumber) {

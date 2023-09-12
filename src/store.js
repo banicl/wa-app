@@ -54,9 +54,12 @@ export default new Vuex.Store({
 
       router.push('/');
     },
-    updateTotalScore({ commit }, score) {
-      commit('SET_TOTAL_SCORE', score);
+    updateTotalScore({ commit, state }, score) {
+      const currentTotalScore = state.totalScore;
+      const newTotalScore = currentTotalScore + score;
+      commit('SET_TOTAL_SCORE', newTotalScore);
     },
+    
   },
   getters: {
     isAuthenticated: (state) => state.isAuthenticated,

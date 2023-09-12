@@ -125,6 +125,7 @@
           this.currentPlaceIndex++;
         } else {
           this.gameOver = true;
+          this.$emit('gameOver');
         }
       },
       goToLevels() {
