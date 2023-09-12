@@ -35,21 +35,28 @@ export default {
   },
   methods: {
     async login() {
-      try {
-        const response = await axios.post('http://localhost:3000/api/login', {
-          username: this.username,
-          password: this.password,
-        });
+  try {
+    const response = await axios.post('http://localhost:3000/api/login', {
+      username: this.username,
+      password: this.password,
+    });
 
-        if (response.status === 200) {
-          console.log('Login successful.');
-          this.$router.push('/LevelsMenu');
-        }
-      } catch (error) {
-        console.error('Login failed:', error);
-        this.loginFailed = true; // Show a login error message
-      }
-    },
+    if (response.status === 200) {
+      const userData = response.data.user; // Extract user data from the response
+      console.log('Login successful.');
+      console.log('User data:', userData);
+
+      // Store user data in Vuex store
+      this.$store.commit('SET_AUTHENTICATED', true);
+      this.$store.commit('SET_USER', userData);
+
+      this.$router.push('/LevelsMenu');
+    }
+  } catch (error) {
+    console.error('Login failed:', error);
+    this.loginFailed = true; // Show a login error message
+  }
+},
     goToMainPage() {
       this.$router.push('/');
     },

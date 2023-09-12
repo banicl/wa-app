@@ -6,10 +6,13 @@
       </div>
     <div class="profile-frame">
       <div class="user-content">
-        <i class="fas fa-user user-icon"></i>
-        <h2>User profile</h2>
+        <i class="fas fa-user user-icon"></i><br><br>
+        <h2>USER PROFILE</h2>
+        <div class="username" v-if="currentUser">
+            <p>Username: <b>{{ currentUser.username }}</b> 😊</p>
+          </div>
         <div class="total-score">
-          <p>Total Score: {{ totalScore }}</p>
+          <p>Total Score: <b>{{ totalScore }}</b> 🏆</p>
         </div><br>
         <button @click="performLogout">Log Out</button>
       </div>
@@ -23,7 +26,7 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['totalScore', 'user']),
+    ...mapGetters(['totalScore', 'currentUser']),
   },
   methods: {
     ...mapActions(['logout']),
@@ -72,7 +75,7 @@ export default {
   padding: 30px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
   width:400px;
-  height: 300px;
+  height: 350px;
 }
 
 .user-content {

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import router from './router/index';
+import api from './api';
 
 Vue.use(Vuex);
 
@@ -15,7 +16,7 @@ export default new Vuex.Store({
     SET_AUTHENTICATED(state, isAuthenticated) {
       state.isAuthenticated = isAuthenticated;
     },
-    SET_CURRENT_USER(state, user) {
+    SET_USER(state, user) {
       state.currentUser = user;
     },
     SET_TOTAL_SCORE(state, score) {
@@ -26,20 +27,25 @@ export default new Vuex.Store({
     async login({ commit }, { username, password }) {
       try {
         const isAuthenticated = await authenticate(username, password);
-
+  
         if (isAuthenticated) {
           commit('SET_AUTHENTICATED', true);
-          commit('SET_CURRENT_USER', { username }); // You can set user data here
-          localStorage.setItem('authToken', 'yourAuthToken'); // Replace with your auth token
+  
+          const userData = await api.getUserProfile();
+          commit('SET_USER', userData); 
+  
+          localStorage.setItem('authToken', 'yourAuthToken'); 
           console.log('Authentication successful.');
-          return true; // Authentication successful
+          console.log('User data:', userData);
+
+          return true; 
         } else {
           console.log('Authentication failed.');
-          return false; // Authentication failed
+          return false; 
         }
       } catch (error) {
         console.error('Login error:', error);
-        return false; // Authentication failed due to an error
+        return false; 
       }
     },
     logout({ commit }) {
