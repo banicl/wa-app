@@ -70,18 +70,18 @@ export default {
 }
 
 .profile-frame {
-  background-color: rgba(255, 255, 255, 0.8); /* Frame background color with opacity */
+  background-color: rgba(255, 255, 255, 0.8); 
   border: 2px solid #ccc;
-  border-radius: 10px; /* Increased border radius for the frame effect */
+  border-radius: 10px; 
   padding: 30px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
   width:400px;
   height: 350px;
 }
 
 .user-content {
   text-align: center;
-  color: #333; /* Text color for user info */
+  color: #333; 
 }
 
 .user-icon {
@@ -99,7 +99,7 @@ total-score {
 }
 
 button {
-  background-color: #ff0000;
+  background-color: rgb(90, 90, 90);
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -111,7 +111,7 @@ button {
 }
 
 button:hover {
-  background-color: #cc0000;
+  background-color: rgb(60, 60, 60);
 }
 
 .home-icon {

@@ -7,17 +7,14 @@
         <div class="frame">
           <hr class="divider" />
           <div v-if="!gameStarted">
-            <!-- Game Introduction -->
             <h1>医院在哪里？Where is the hospital?🏥</h1><br>
             <p><b>Welcome to Level 10! 😊🌼</b><br>
                 Discover different places around you! 🗺️🏰 From hospitals to<br> post offices and beyond, match each location to its name.🏛️<br> Let's embark on a journey and explore the world together!"<br>
               <br>Start by pressing the big red button below. 🔴👇</p>
               <hr class="divider" />
-            <!-- Add game start button -->
             <button @click="startGame">Start Game</button>
           </div>
           <div v-else>
-            <!-- Game Content -->
             <GameContent @gameOver="handleGameOver" />
           </div>
         </div>
@@ -31,16 +28,15 @@
   export default {
     name: 'Level10',
     components: {
-      GameContent, // Register the game component
+      GameContent,
     },
     data() {
       return {
-        gameStarted: false, // Add gameStarted state
+        gameStarted: false, 
       };
     },
     methods: {
       startGame() {
-        // Add logic to start the game
         this.gameStarted = true;
       },
       handleGameOver() {

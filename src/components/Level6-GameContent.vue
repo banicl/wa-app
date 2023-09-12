@@ -11,7 +11,6 @@
         <h3>{{ currentAnimalPinyin }}</h3>
       </div>
   
-      <!-- Display game completion message -->
       <div v-if="gameOver">
         <audio ref="backgroundMusic" src="@/assets/sounds/level-completed.mp3" autoplay></audio>
         <h1>Congratulations! You completed the level. 🏆🎉</h1>

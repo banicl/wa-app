@@ -19,7 +19,6 @@
         />
       </div>
   
-      <!-- Display game completion message -->
       <div v-if="gameOver">
         <audio ref="backgroundMusic" src="@/assets/sounds/level-completed.mp3" autoplay></audio>
         <h1>Congratulations! You completed the level. 🏆🎉</h1>
@@ -128,7 +127,7 @@
       moveToNextFruit() {
         if (this.currentFruitIndex < this.fruits.length - 1) {
           this.currentFruitIndex++;
-          this.userInput = ''; // Clear the user input for the next fruit
+          this.userInput = ''; 
         } else {
           this.gameOver = true;
           this.$emit('gameOver');

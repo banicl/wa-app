@@ -15,11 +15,9 @@
             </div>
           </div>
         </transition>
-  
-        <!-- Display the current Arabic number above the Chinese numbers -->
+
         <div class="current-arabic-number">👉  {{ currentNumber }}  👈</div>
-  
-        <!-- Display feedback for correct and wrong answers -->
+
         <div v-if="correctAnswer">
           <br>
           <audio ref="correctSound" src="@/assets/sounds/correct-answer.mp3"></audio>
@@ -48,19 +46,19 @@
   export default {
     data() {
       return {
-        arabicNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // Arabic numerals
-        chineseNumbers: ['一 (yī)', '二 (èr)', '三 (sān)', '四 (sì)', '五 (wǔ)', '六 (liù)', '七 (qī)', '八 (bā)', '九 (jiǔ)', '十 (shí)'], // Corresponding Chinese numbers
-        currentNumberIndex: 0, // Index of the current number
-        currentNumber: 1, // Current Arabic numeral to match (start with 1)
-        correctAnswer: false, // Flag to display correct answer message
-        wrongAnswer: false, // Flag to display wrong answer message
-        gameOver: false, // Flag to display game over message
-        score: 0, // Initialize the score
+        arabicNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+        chineseNumbers: ['一 (yī)', '二 (èr)', '三 (sān)', '四 (sì)', '五 (wǔ)', '六 (liù)', '七 (qī)', '八 (bā)', '九 (jiǔ)', '十 (shí)'], 
+        currentNumberIndex: 0, 
+        currentNumber: 1, 
+        correctAnswer: false, 
+        wrongAnswer: false, 
+        gameOver: false, 
+        score: 0,
       };
     },
     methods: {
       startGame() {
-        this.moveToNextNumber(); // Start with the first number
+        this.moveToNextNumber(); 
       },
       moveToNextNumber() {
         if (this.currentNumberIndex < this.arabicNumbers.length) {
@@ -76,21 +74,21 @@
           this.$nextTick(() => {
             this.$refs.correctSound.play();
           });
-          this.score += 20; // Add points for a correct answer
+          this.score += 20;
           setTimeout(() => {
             this.correctAnswer = false;
             this.currentNumberIndex++;
             this.moveToNextNumber();
-          }, 1000); // Automatically proceed after 1 second
+          }, 1000); 
         } else {
           this.wrongAnswer = true;
           this.$nextTick(() => {
             this.$refs.wrongSound.play();
           });
-          this.score -= 5; // Deduct points for a wrong answer
+          this.score -= 5; 
           setTimeout(() => {
             this.wrongAnswer = false;
-          }, 1000); // Hide the message after 1 second
+          }, 1000); 
         }
       },
       goToLevels() {

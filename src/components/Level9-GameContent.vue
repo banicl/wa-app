@@ -4,12 +4,10 @@
       <h2>Match the English Word to the Chinese Word! 📚🧮</h2>
       <h3>Can you pair the correct Chinese word with its English word?</h3>
 
-      <!-- Display the current English word -->
       <div class="word">
         <p>{{ currentWord }}</p>
       </div>
 
-      <!-- Display the shuffled answer choices in a row -->
       <div class="choice-row">
         <button
           class="game-choice-button"
@@ -171,7 +169,7 @@ export default {
 }
 
 .choice-row {
-  flex-basis: calc(25% - 5px); /* Four choices in each row with some spacing */
+  flex-basis: calc(25% - 5px); 
 }
 
 .word {

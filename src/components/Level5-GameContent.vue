@@ -8,7 +8,6 @@
         <h2>{{ currentFamilyMemberHanzi }}</h2>
         <p><b>Task:</b> {{ currentTaskDescription }}</p>
   
-        <!-- Display the action choices -->
         <div class="choice-rows">
           <div class="choice-row" v-for="(choice, index) in actionChoices" :key="index">
             <button class="game-choice-button" @click="checkAction(choice)">
@@ -18,7 +17,6 @@
         </div>
       </div>
   
-      <!-- Display game feedback messages -->
       <div v-if="completedTask">
         <br>
         <audio ref="correctSound" src="@/assets/sounds/correct-answer.mp3"></audio>
@@ -220,7 +218,7 @@
   }
   
   .choice-row {
-    flex-basis: calc(25% - 5px); /* Four choices in each row with some spacing */
+    flex-basis: calc(25% - 5px); 
   }
   
   .home-icon {

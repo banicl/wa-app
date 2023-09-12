@@ -7,7 +7,6 @@
         <div class="frame">
           <hr class="divider" />
           <div v-if="!gameStarted">
-            <!-- Game Introduction -->
             <h1>数字! Numbers!🔢</h1><br>
             <p><b>Welcome to Level 2! 😊🌼</b><br>
             In this level, you'll dive into the world of Chinese numbers! <br>
@@ -15,11 +14,9 @@
             Get ready to learn how to count from 1 to 10 in Chinese! 🧮🎉<br>
             <br>Start by pressing the big red button below. 🔴👇</p>
               <hr class="divider" />
-            <!-- Add game start button -->
             <button @click="startGame">Start Game</button>
           </div>
           <div v-else>
-            <!-- Game Content -->
             <GameContent @gameOver="handleGameOver" />
           </div>
         </div>
@@ -33,16 +30,15 @@
   export default {
     name: 'Level1',
     components: {
-      GameContent, // Register the game component
+      GameContent, 
     },
     data() {
       return {
-        gameStarted: false, // Add gameStarted state
+        gameStarted: false, 
       };
     },
     methods: {
       startGame() {
-        // Add logic to start the game
         this.gameStarted = true;
       },
       handleGameOver() {

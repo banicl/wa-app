@@ -7,7 +7,6 @@
           <img :src="currentImage" alt="Image" class="image" />
         </transition>
   
-        <!-- Display the answer choices in four rows with three answers in each row -->
         <div class="choice-rows">
           <div class="choice-row" v-for="(choice, index) in answerChoices" :key="index">
             <button class="game-choice-button" @click="checkAnswer(choice)">
@@ -158,7 +157,7 @@
   }
   
   .choice-row {
-    flex-basis: calc(25% - 5px); /* Four choices in each row with some spacing */
+    flex-basis: calc(25% - 5px); 
   }
   
   .home-icon {

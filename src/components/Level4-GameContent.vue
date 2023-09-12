@@ -4,12 +4,10 @@
         <h2>Match the Year to the Chinese Zodiac! 🐉🧧</h2>
         <h3>Can you pair the correct year with its Zodiac sign?</h3>
   
-        <!-- Display the current year -->
         <div class="year">
           <p>{{ currentYear }}</p>
         </div>
   
-        <!-- Display the shuffled answer choices in a row -->
         <div class="choice-row">
           <button
             class="game-choice-button"

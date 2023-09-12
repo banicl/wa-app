@@ -7,18 +7,15 @@
         <div class="frame">
           <hr class="divider" />
           <div v-if="!gameStarted">
-            <!-- Game Introduction -->
             <h1>你是哪里人？Where are you from?🌍</h1><br>
             <p><b>Welcome to Level 3! 😊🌼</b><br>
                 In this level, you'll learn about countries from around the world and <br>their names in Chinese. 🗺️ 
                 Explore the diverse cultures, traditions,<br> and landmarks represented by these countries. 🌟<br>
               <br>Start by pressing the big red button below. 🔴👇</p>
               <hr class="divider" />
-            <!-- Add game start button -->
             <button @click="startGame">Start Game</button>
           </div>
           <div v-else>
-            <!-- Game Content -->
             <GameContent @gameOver="handleGameOver" />
           </div>
         </div>
@@ -32,16 +29,15 @@
   export default {
     name: 'Level1',
     components: {
-      GameContent, // Register the game component
+      GameContent, 
     },
     data() {
       return {
-        gameStarted: false, // Add gameStarted state
+        gameStarted: false, 
       };
     },
     methods: {
       startGame() {
-        // Add logic to start the game
         this.gameStarted = true;
       },
       handleGameOver() {

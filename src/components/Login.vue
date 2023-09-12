@@ -42,11 +42,10 @@ export default {
     });
 
     if (response.status === 200) {
-      const userData = response.data.user; // Extract user data from the response
+      const userData = response.data.user; 
       console.log('Login successful.');
       console.log('User data:', userData);
 
-      // Store user data in Vuex store
       this.$store.commit('SET_AUTHENTICATED', true);
       this.$store.commit('SET_USER', userData);
 
@@ -54,7 +53,7 @@ export default {
     }
   } catch (error) {
     console.error('Login failed:', error);
-    this.loginFailed = true; // Show a login error message
+    this.loginFailed = true; 
   }
 },
     goToMainPage() {

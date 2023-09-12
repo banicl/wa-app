@@ -18,7 +18,6 @@
           <button @click="startGame">Start Game</button>
         </div>
         <div v-else>
-
           <GameContent @gameOver="handleGameOver" />
         </div>
       </div>
