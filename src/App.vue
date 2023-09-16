@@ -16,6 +16,7 @@ export default {
 };
 </script>
 
+
 <style>
 .slide-fade-enter-active {
   transition: all 0.3s ease;
